@@ -10,7 +10,7 @@ package model;
  * @author alanrps
  */
 public class Endereco{
-    private int numero;
+    private int nmr;
     private int cep;
     private String logradouro;
     
@@ -20,17 +20,17 @@ public class Endereco{
 //        this.logradouro = logradouro;
 //    }
     
-    public int getNumero(){
-        return numero;
+    public int getNmr(){
+        return nmr;
     }
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNmr(int nmr) {
+        this.nmr = nmr;
     }
     
-    public int getCEP(){
+    public int getCep(){
         return cep;
     }
-    public void setCEP(int cep) {
+    public void setCep(int cep) {
         this.cep = cep;
     }
     

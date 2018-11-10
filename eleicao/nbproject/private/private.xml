@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/alanrps/NetBeansProjects/eleicao/src/model/Pessoa.java</file>
-            <file>file:/home/alanrps/NetBeansProjects/eleicao/src/id/zona.java</file>
-            <file>file:/home/alanrps/NetBeansProjects/eleicao/src/model/Endereco.java</file>
-            <file>file:/home/alanrps/NetBeansProjects/eleicao/src/id/pessoa.java</file>
-            <file>file:/home/alanrps/NetBeansProjects/eleicao/src/id/secao.java</file>
+            <file>file:/home/alanrps/Documentos/Election_System/eleicao/src/dao/enderecoDAO.java</file>
+            <file>file:/home/alanrps/Documentos/Election_System/eleicao/src/dao/DbConnection.java</file>
+            <file>file:/home/alanrps/Documentos/Election_System/eleicao/src/model/Endereco.java</file>
         </group>
     </open-files>
 </project-private>
