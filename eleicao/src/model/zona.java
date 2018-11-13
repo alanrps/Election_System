@@ -36,7 +36,7 @@ public class zona {
         return estado;
     }
     
-    public String setestado(){
+    public void setestado(String estado){
         this.estado = estado;
     }
 }

@@ -28,7 +28,7 @@ public class Pessoa{
         this.titEleitor = titEleitor;
     }
     
-     public String getNome(){
+    public String getNome(){
         return nome;
     }
     public void setNome(String nome) {
