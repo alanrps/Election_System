@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import dao.DbConnection;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Endereco;
+import java.sql.PreparedStatement;
 /**
  *
  * @author alanrps
  */
-public class enderecoDAO {
+public class enderecoDAO extends DbConnection{
     private Connection conn;
     private final String sqlInsert  = "INSERT INTO ENDERECO(nmr,cep,logradouro) VALUES (?,?,?)";
-    private final String sqlUpdate  = "UPDATE ENDERECO SET titEleitor = ?, nmr = ?, cep = ?, logradouro = ?";
+    private final String sqlUpdate  = "UPDATE ENDERECO SET  nmr = ?, cep = ?, logradouro = ?";
     private final String sqlRemove  = "DELETE FROM ENDERECO WHERE nmr = ?";
     private final String sqlList    = "SELECT nmr,cep,logradouro FROM ENDERECO ORDER BY ENDERECO.nmr";
     private final String sqlFind    = "SELECT nmr,cep,logradouro FROM ENDERECO WHERE nmr = ?";
@@ -27,7 +28,6 @@ public class enderecoDAO {
         try{
             conn = connect();
             ps = conn.prepareStatement(sqlInsert);
-        
             ps.setInt(1, endereco.getNmr());
             ps.setInt(2, endereco.getCep());
             ps.setString(3, endereco.getLogradouro());
@@ -67,8 +67,58 @@ public class enderecoDAO {
             ps.close();
             close(conn);
         }
-
     }
+    
+    public ArrayList<Endereco> list() throws SQLException, ClassNotFoundException, IOException{ 
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            conn = connect();
+            ps = conn.prepareStatement(sqlList);
+            rs = ps.executeQuery();
+            ArrayList<Endereco> list = new ArrayList<>();
+            Endereco endereco;
+//            EnderecoDAO enderecoDAO = new EnderecoDAO();
+            while (rs.next()){
+                endereco = new Endereco();
+                endereco.setNmr(rs.getInt("nmr"));
+                endereco.setCep(rs.getInt("cep"));
+                endereco.setLogradouro(rs.getString("logradouro"));
+                list.add(endereco);
+            }
+            return list;
+       }
+    }
+        
+        public Endereco find(int nmr)throws SQLException, ClassNotFoundException, IOException{
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            conn = connect();
+            ps = conn.prepareStatement(sqlFind);
+            ps.setInt(1, nmr);
+
+            rs = ps.executeQuery();
+            Endereco endereco = null ;
+            if (rs.next()){
+                endereco = new Endereco();
+                endereco.setNmr(rs.getInt("nmr"));
+                endereco.setCep(rs.getInt("cep"));
+                endereco.setLogradouro(rs.getString("logradouro"));
+            }
+            return endereco;
+        }
+        finally{
+            rs.close();
+            ps.close();
+            close(conn);
+        }
+        
+    }
+}
+    
+    
+    
     
     
     
