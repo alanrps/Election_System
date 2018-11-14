@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
  *
  * @author alanrps
  */
-public class enderecoDAO extends DbConnection{
+public class EnderecoDAO extends DbConnection{
     private Connection conn;
     private final String sqlInsert  = "INSERT INTO ENDERECO(nmr,cep,logradouro) VALUES (?,?,?)";
     private final String sqlUpdate  = "UPDATE ENDERECO SET  nmr = ?, cep = ?, logradouro = ?";
@@ -68,8 +68,8 @@ public class enderecoDAO extends DbConnection{
             close(conn);
         }
     }
-    
-    public ArrayList<Endereco> list() throws SQLException, ClassNotFoundException, IOException{ 
+
+    public ArrayList<Endereco> list() throws SQLException, ClassNotFoundException, IOException{
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{
@@ -78,16 +78,20 @@ public class enderecoDAO extends DbConnection{
             rs = ps.executeQuery();
             ArrayList<Endereco> list = new ArrayList<>();
             Endereco endereco;
-//            EnderecoDAO enderecoDAO = new EnderecoDAO();
             while (rs.next()){
                 endereco = new Endereco();
                 endereco.setNmr(rs.getInt("nmr"));
                 endereco.setCep(rs.getInt("cep"));
-                endereco.setLogradouro(rs.getString("logradouro"));
+                endereco.setLogradouro(rs.getString("Logradouro"));
                 list.add(endereco);
             }
             return list;
-       }
+        }
+        finally{
+            rs.close();
+            ps.close();
+            close(conn);
+        }
     }
         
         public Endereco find(int nmr)throws SQLException, ClassNotFoundException, IOException{
@@ -116,10 +120,4 @@ public class enderecoDAO extends DbConnection{
         
     }
 }
-    
-    
-    
-    
-    
-    
-}
+       
