@@ -5,8 +5,8 @@ package model;
  * @author Henri
  */
 public class secao {
-    public int nmr;
-    public int qtdeEleitores;
+    private int nmr;
+    private int qtdeEleitores;
     private Endereco localizacao;
     
     public int getNmr(){
