@@ -5,9 +5,9 @@ package model;
  * @author Henri
  */
 public class urna {
-    public int nmr;
-    public String tipoUrna;
-    public String modelo;
+    private int nmr;
+    private String tipoUrna;
+    private String modelo;
     
     public int getNmr(){
         return nmr;

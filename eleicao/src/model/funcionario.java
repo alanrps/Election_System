@@ -5,7 +5,7 @@ package model;
  * @author Henri
  */
 public class funcionario extends Pessoa{
-    public String cargo;
+    private String cargo;
     
     public String getCargo(){
         return cargo;

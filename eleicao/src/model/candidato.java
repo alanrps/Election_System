@@ -5,10 +5,10 @@ package model;
  * @author Henri
  */
 public class candidato extends Pessoa{
-       public int nmr;
-       public String nomeFantasia;
-       public int nroVotos;
-       public String cargo;
+       private int nmr;
+       private String nomeFantasia;
+       private int nroVotos;
+       private String cargo;
        
     public int getNmr(){
         return nmr;

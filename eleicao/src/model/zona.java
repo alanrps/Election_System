@@ -5,10 +5,10 @@ package model;
  * @author Henri
  */
 public class zona {
-    public int nmr;
-    public Endereco endZona;
-    public int qtdeEleitores;
-    public String estado;
+    private int nmr;
+    private Endereco endZona;
+    private int qtdeEleitores;
+    private String estado;
     
      public int getNmr(){
         return nmr;
