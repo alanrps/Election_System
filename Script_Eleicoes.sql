@@ -20,15 +20,16 @@ CREATE TABLE PESSOA(
     nmrSecao INTEGER, #Tabela secao
     nmrEnd INTEGER, #Tabela endereco
 	FOREIGN KEY (nmrPartido) references PARTIDO(num),
-    FOREIGN KEY (nmrSecao) references SECAO(nmr), 
-    FOREIGN KEY (nmrEnd) references ENDERECO(nmr)
+    FOREIGN KEY (nmrSecao) references SECAO(nmr)
     
 );
 
 CREATE TABLE ENDERECO(
 	nmr INTEGER PRIMARY KEY,
     cep INTEGER,
-	logradouro VARCHAR(100)
+	logradouro VARCHAR(100),
+    titEleitor INTEGER,
+    FOREIGN KEY (titEleitor) references PESSOA(titEleitor)
 );
 
 CREATE TABLE PARTIDO(
@@ -39,20 +40,20 @@ CREATE TABLE PARTIDO(
 );
 
 CREATE TABLE SECAO(
-	nmr INTEGER,
+	nmr INTEGER PRIMARY KEY,
     localizacao VARCHAR(100),
-    qtdeEleitores INTEGER, 
+    qtdeEleitores INTEGER,                     ###AUTO_INCREMENT
     nmrZona INTEGER, #Tabela Zona
     estadoZona VARCHAR(100), #Tabela Zona
-	FOREIGN KEY (nmrZona) REFERENCES ZONA(nmr) ON DELETE CASCADE,
-    FOREIGN KEY (estadoZona) REFERENCES ZONA(estado) ON DELETE CASCADE
+	FOREIGN KEY (nmrZona) REFERENCES ZONA(nmr),
+    FOREIGN KEY (estadoZona) REFERENCES ZONA(estado)
 );
 
 CREATE TABLE ZONA(
 	nmr INTEGER,
     estado VARCHAR(100),
     endZona VARCHAR(100),
-    qtdeEleitoresZona INTEGER,
+    qtdeEleitoresZona INTEGER,   ##AUTO_INCREMENT
     PRIMARY KEY(nmr,estado)
 );
 
@@ -81,7 +82,7 @@ CREATE TABLE FUNCIONARIO(
 );
 
 CREATE TABLE REGISTRAC(
-	id INTEGER PRIMARY KEY,
+	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	titEleitor INTEGER, #Tabela Pessoa
     nmrUrna INTEGER, #Tabela Urna
 	FOREIGN KEY (titEleitor) REFERENCES CANDIDATO(titEleitor),
@@ -89,7 +90,7 @@ CREATE TABLE REGISTRAC(
 );
 
 CREATE TABLE REGISTRAP(
-	id INTEGER PRIMARY KEY,
+	id INTEGER AUTO_INCREMENT PRIMARY KEY,
     nmrPartido INTEGER,
     nmrUrna INTEGER,
     FOREIGN KEY (nmrPartido) REFERENCES PARTIDO(nmr),

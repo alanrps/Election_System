@@ -61,6 +61,8 @@ public class EnderecoJDialog extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         txtLogradouro = new javax.swing.JTextField();
         txtNmr = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         btnFechar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -103,15 +105,22 @@ public class EnderecoJDialog extends javax.swing.JDialog {
         jLabel11.setText("Cep:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 70, 150, 20));
 
-        jLabel12.setText("Número:");
+        jLabel12.setText("Pessoa:");
         jLabel12.setAlignmentX(1.0F);
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 20, 120, 20));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 120, 20));
         jPanel1.add(txtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 150, -1));
 
         jLabel7.setText("Logradouro:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
         jPanel1.add(txtLogradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 200, 30));
         jPanel1.add(txtNmr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 150, -1));
+
+        jLabel13.setText("Número:");
+        jLabel13.setAlignmentX(1.0F);
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 20, 120, 20));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 380, -1));
 
         btnFechar.setText("Fechar");
         btnFechar.setActionCommand("btnNovo");
@@ -185,8 +194,8 @@ public class EnderecoJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,8 +333,10 @@ public class EnderecoJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
