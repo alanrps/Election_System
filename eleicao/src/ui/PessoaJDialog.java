@@ -9,12 +9,12 @@ package ui;
  *
  * @author alanrps
  */
-public class pessoa extends javax.swing.JPanel {
+public class PessoaJDialog extends javax.swing.JPanel {
 
     /**
      * Creates new form pessoa
      */
-    public pessoa() {
+    public PessoaJDialog() {
         initComponents();
     }
 
