@@ -8,12 +8,7 @@ public class Endereco{
     private int nmr;
     private int cep;
     private String logradouro;
-    
-//    public Endereco(int numero,int cep,String logradouro) {
-//        this.numero = numero;
-//        this.cep = cep;
-//        this.logradouro = logradouro;
-//    }
+   
     
     public int getNmr(){
         return nmr;

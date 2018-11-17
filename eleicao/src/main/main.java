@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package main;
-import ui.frmPrincipal;
+import ui.Principal;
 /**
  *
  * @author Alan Patriarca
  */
 public class main {
      public static void main(String[] args)  {
-       new frmPrincipal().setVisible(true);
+       new Principal().setVisible(true);
     }
 }
 

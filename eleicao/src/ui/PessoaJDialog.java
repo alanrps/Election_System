@@ -11,9 +11,7 @@ package ui;
  */
 public class PessoaJDialog extends javax.swing.JPanel {
 
-    /**
-     * Creates new form pessoa
-     */
+    
     public PessoaJDialog() {
         initComponents();
     }
@@ -953,11 +951,7 @@ public class PessoaJDialog extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        addRecord = true;
-        clearInputBoxes();
-        txtNome.requestFocus();
-        enableButtons(false, true, true, false);
-        enableFields(true);
+       
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnNovo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo2ActionPerformed

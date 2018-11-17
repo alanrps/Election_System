@@ -1,3 +1,5 @@
+package main;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,7 +17,7 @@ import java.sql.PreparedStatement;
  *
  * @author alanrps
  */
-public class EnderecoDAO extends DbConnection{
+public class EnderecoDAO1 extends DbConnection{
     private Connection conn;
     private final String sqlInsert  = "INSERT INTO ENDERECO(nmr,cep,logradouro) VALUES (?,?,?)";
     private final String sqlUpdate  = "UPDATE ENDERECO SET  nmr = ?, cep = ?, logradouro = ?";

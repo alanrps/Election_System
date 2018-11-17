@@ -15,11 +15,6 @@ public class Pessoa{
     private String nome;
     private Date dataNasc;
     
-//    public Pessoa(int titEleitor,String nome,Date dataNasc) {
-//        this.titEleitor = titEleitor;
-//        this.nome = nome;
-//        this.dataNasc = dataNasc;
-//    }
     
     public int getTituloEleitor(){
         return titEleitor;

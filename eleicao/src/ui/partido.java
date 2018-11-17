@@ -198,11 +198,7 @@ public class partido extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        addRecord = true;
-        clearInputBoxes();
-        txtNome.requestFocus();
-        enableButtons(false, true, true, false);
-        enableFields(true);
+//        
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnNovo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo2ActionPerformed
