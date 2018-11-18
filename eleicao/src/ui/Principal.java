@@ -136,8 +136,11 @@ public class Principal extends javax.swing.JFrame {
     private void btnEnderecoActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnderecoActionPerformedActionPerformed
         // TODO add your handling code here:
         EnderecoJDialog form = new EnderecoJDialog(null, true);
-        form.setLocationRelativeTo(null);
+        form.setSize(500,500);
+        form.setLocationRelativeTo(null); 
         form.setVisible(true);
+       
+        
     }//GEN-LAST:event_btnEnderecoActionPerformedActionPerformed
 
     private void btnPartidoActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartidoActionPerformedActionPerformed

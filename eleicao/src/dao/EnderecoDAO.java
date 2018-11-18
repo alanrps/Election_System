@@ -17,11 +17,14 @@ import java.sql.PreparedStatement;
  */
 public class EnderecoDAO extends DbConnection{
     private Connection conn;
-    private final String sqlInsert  = "INSERT INTO ENDERECO(nmr,cep,logradouro) VALUES (?,?,?)";
-    private final String sqlUpdate  = "UPDATE ENDERECO SET  nmr = ?, cep = ?, logradouro = ?";
-    private final String sqlRemove  = "DELETE FROM ENDERECO WHERE nmr = ?";
-    private final String sqlList    = "SELECT nmr,cep,logradouro FROM ENDERECO ORDER BY ENDERECO.nmr";
-    private final String sqlFind    = "SELECT nmr,cep,logradouro FROM ENDERECO WHERE nmr = ?";
+    private final String sqlInsertEndereco  = "INSERT INTO ENDERECO(nmr,cep,logradouro) VALUES (?,?,?)";
+    private final String sqlInsertPessoa  = "INSERT INTO PESSOA(titEleitor,nome,dataNasc) VALUES (?,?,?)";
+    private final String sqlUpdateEndereco  = "UPDATE ENDERECO SET  nmr = ?, cep = ?, logradouro = ?";
+    private final String sqlUpdatePessoa  = "UPDATE PESSOA SET  titEleitor = ?, nome = ?, dataNasc = ?";
+    private final String sqlRemovePessoa  = "DELETE FROM PESSOA WHERE titEleitor = ?";
+    private final String sqlRemoveEndereco  = "DELETE ENDERECO SET  nmr = ?";
+    private final String sqlList    = "SELECT titEleitor,nome,dataNasc,nmr,cep,logradouro FROM ENDERECO E,PESSOA P WHERE P.titEleitor = E.nmr  ORDER BY PESSOA.titEleitor";
+    private final String sqlFind    = "SELECT titEleitor,nome,dataNasc,nmr,cep,logradouro FROM ENDERECO E,PESSOA P WHERE titEleitor = ?";
 
      public void insert(Endereco endereco) throws SQLException{
         PreparedStatement ps = null;

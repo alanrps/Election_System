@@ -1,5 +1,5 @@
-CREATE DATABASE ELEICOES;
-USE ELEICOES;
+CREATE DATABASE ELEICAO;
+USE F1;
 
 DROP TABLE IF EXISTS PESSOA;
 DROP TABLE IF EXISTS ENDERECO;
@@ -20,16 +20,14 @@ CREATE TABLE PESSOA(
     nmrSecao INTEGER, #Tabela secao
     nmrEnd INTEGER, #Tabela endereco
 	FOREIGN KEY (nmrPartido) references PARTIDO(num),
-    FOREIGN KEY (nmrSecao) references SECAO(nmr)
-    
+    FOREIGN KEY (nmrSecao) references SECAO(nmr),
+    FOREIGN KEY (nmrEnd) references ENDERECO(nmr)
 );
 
 CREATE TABLE ENDERECO(
 	nmr INTEGER PRIMARY KEY,
     cep INTEGER,
-	logradouro VARCHAR(100),
-    titEleitor INTEGER,
-    FOREIGN KEY (titEleitor) references PESSOA(titEleitor)
+	logradouro VARCHAR(100)
 );
 
 CREATE TABLE PARTIDO(
@@ -98,4 +96,13 @@ CREATE TABLE REGISTRAP(
 );
 
 
+SELECT *
+FROM ENDERECO;
+
+INSERT INTO ENDERECO values(10,1110121,'Avenida São Joao',10101);
+
+CREATE USER 'teste'@'localhost:3306' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON * . * TO 'teste'@'localhost:3306';
+GRANT ALL ON *.* TO 'root'@'localhost:3306' WITH GRANT OPTION; 
+FLUSH PRIVILEGES;
 

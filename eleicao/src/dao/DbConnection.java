@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public abstract class DbConnection {
     
     public Connection getMyConnection() throws SQLException, ClassNotFoundException, IOException {
-        Class.forName("com.mysql.jdbc.Driver");
+        //Class.forName("com.mysql.jdbc.driver");
         return DriverManager.getConnection(Config.URL, Config.LOGIN, Config.PASSWORD);
     }
    

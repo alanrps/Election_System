@@ -10,7 +10,7 @@ import ui.Principal;
  * @author Alan Patriarca
  */
 public class main {
-     public static void main(String[] args)  {
+     public static void main(String[] args){
        new Principal().setVisible(true);
     }
 }

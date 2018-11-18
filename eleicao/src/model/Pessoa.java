@@ -5,27 +5,32 @@
  */
 package model;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
  * @author alanrps
  */
 public class Pessoa{
-    private int titEleitor;
-    private String nome;
-    private Date dataNasc;
+    protected int titEleitor;
+    protected String nome;
+    protected Date dataNasc;
+//    public void setData(String dataNasc) throws ParseException{
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//        this.dataNasc =  new java.sql.Date(format.parse(dataNasc).getTime());
+//    }
     
     
-    public int getTituloEleitor(){
+    public int getTitEleitor(){
         return titEleitor;
     }
-    public void setNumero(int titEleitor) {
+    public void setTitEleitor(int titEleitor) {
         this.titEleitor = titEleitor;
     }
-    
     public String getNome(){
         return nome;
-    }
+}
     public void setNome(String nome) {
         this.nome = nome;
     }
