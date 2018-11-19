@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
-import java.sql.Date;
+
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 /**
  *
@@ -16,11 +10,6 @@ public class Pessoa{
     protected int titEleitor;
     protected String nome;
     protected Date dataNasc;
-//    public void setData(String dataNasc) throws ParseException{
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//        this.dataNasc =  new java.sql.Date(format.parse(dataNasc).getTime());
-//    }
-    
     
     public int getTitEleitor(){
         return titEleitor;

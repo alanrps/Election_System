@@ -7,7 +7,7 @@ package model;
 public class secao {
     private int nmr;
     private int qtdeEleitores;
-    private Endereco localizacao;
+    private String localizacao;
     
     public int getNmr(){
         return nmr;
@@ -23,11 +23,11 @@ public class secao {
         this.qtdeEleitores = qtdeEleitores;
     }
  
-    public Endereco getLocalizacao() {
+    public String getLocalizacao() {
         return localizacao;
     }
 
-    public void setLocalizacao(Endereco localizacao) {
+    public void setLocalizacao(String localizacao) {
         this.localizacao = localizacao;
     }
     
