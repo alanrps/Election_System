@@ -7,9 +7,9 @@ import java.text.ParseException;
  * @author alanrps
  */
 public class Pessoa{
-    protected int titEleitor;
-    protected String nome;
-    protected Date dataNasc;
+    private int titEleitor;
+    private String nome;
+//    private Date dataNasc;
     
     public int getTitEleitor(){
         return titEleitor;
@@ -24,11 +24,11 @@ public class Pessoa{
         this.nome = nome;
     }
     
-    public Date getDataNasc(){
-        return dataNasc;
-    }
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
-    }
+//    public Date getDataNasc(){
+//        return dataNasc;
+//    }
+//    public void setDataNasc(Date dataNasc) {
+//        this.dataNasc = dataNasc;
+//    }
     
 }
