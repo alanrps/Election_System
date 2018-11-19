@@ -32,8 +32,8 @@ public class EnderecoDAO1 extends DbConnection{
     private final String sqlUpdatePessoa  = "UPDATE PESSOA SET  titEleitor = ?, nome = ?, dataNasc = ?";
     private final String sqlRemovePessoa  = "DELETE FROM PESSOA WHERE titEleitor = ?";
     private final String sqlRemoveEndereco  = "DELETE ENDERECO SET  id = ?";
-    private final String sqlList   = "SELECT titEleitor,nome,dataNasc,nmr,cep,logradouro FROM ENDERECO E,PESSOA P   ORDER BY PESSOA.titEleitor"; //WHERE P.nmrEnd = E.nmr
-    private final String sqlFind   = "SELECT titEleitor,nome,dataNasc,nmr,cep,logradouro FROM ENDERECO E,PESSOA P WHERE titEleitor = ?";
+    private final String sqlList   = "SELECT titEleitor,nome,nmr,cep,logradouro FROM ENDERECO E,PESSOA WHERE P.idEnd = E.id P ORDER BY PESSOA.titEleitor"; //WHERE P.nmrEnd = E.nmr
+    private final String sqlFind   = "SELECT titEleitor,nome,nmr,cep,logradouro FROM ENDERECO E,PESSOA P WHERE titEleitor = ?";
     private final String sqlFindId = "SELECT id FROM ENDERECO WHERE nmr = ? AND cep = ? AND logradouro = ?";
     /**
      *
@@ -174,11 +174,13 @@ public class EnderecoDAO1 extends DbConnection{
             EnderecoPessoa enderecoPessoa;
             while (rs.next()){
                 enderecoPessoa = new EnderecoPessoa();
+                enderecoPessoa.setTitEleitor(rs.getInt("titulo eleitor"));
+                enderecoPessoa.setNome(rs.getString("nome"));
                 enderecoPessoa.setNmr(rs.getInt("nmr"));
                 enderecoPessoa.setCep(rs.getInt("cep"));
                 enderecoPessoa.setLogradouro(rs.getString("logradouro"));
-                enderecoPessoa.setTitEleitor(rs.getInt("titulo eleitor"));
-                enderecoPessoa.setNome(rs.getString("nome"));
+                
+                
 //                enderecoPessoa.setDataNasc(rs.getDate("data de nascimento"));
                 list.add(enderecoPessoa);
             }
@@ -203,11 +205,13 @@ public class EnderecoDAO1 extends DbConnection{
             EnderecoPessoa enderecoPessoa = null ;
             if (rs.next()){
                 enderecoPessoa = new EnderecoPessoa();
+                enderecoPessoa.setTitEleitor(rs.getInt("titulo de eleitor"));
+                enderecoPessoa.setNome(rs.getString("nome"));
                 enderecoPessoa.setNmr(rs.getInt("nmr"));
                 enderecoPessoa.setCep(rs.getInt("cep"));
                 enderecoPessoa.setLogradouro(rs.getString("logradouro"));
-                enderecoPessoa.setTitEleitor(rs.getInt("titulo de eleitor"));
-                enderecoPessoa.setNome(rs.getString("nome"));
+                
+                
 //                enderecoPessoa.setDataNasc(rs.getDate("data nascimento"));
             }
             return enderecoPessoa;
