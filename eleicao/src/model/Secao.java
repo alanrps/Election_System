@@ -4,7 +4,7 @@ package model;
  *
  * @author Henri
  */
-public class secao {
+public class Secao {
     private int nmr;
     private int qtdeEleitores;
     private String localizacao;

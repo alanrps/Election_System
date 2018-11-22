@@ -23,18 +23,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="415" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="281" max="32767" attributes="0"/>
+              <Component id="btnPartidoActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="btnEnderecoActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnPartidoActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="btnPessoaActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btnEnderecoActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="btnSecaoActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
@@ -50,15 +48,15 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="250" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="btnPartidoActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace pref="156" max="32767" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnEnderecoActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="btnPartidoActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="btnPessoaActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnEnderecoActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnSecaoActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
@@ -98,7 +96,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEnderecoActionPerformed">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
+        <Property name="text" type="java.lang.String" value="Pessoa"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnderecoActionPerformedActionPerformed"/>
@@ -110,14 +108,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPartidoActionPerformedActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnPessoaActionPerformed">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pessoa"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPessoaActionPerformedActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

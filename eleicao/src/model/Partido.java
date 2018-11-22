@@ -4,7 +4,7 @@ package model;
  *
  * @author Henri
  */
-public class partido {
+public class Partido {
     
     private int nmr;
     private String nome;
