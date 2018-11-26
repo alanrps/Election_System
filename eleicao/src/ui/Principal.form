@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="281" max="32767" attributes="0"/>
-              <Component id="btnPartidoActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="btnPartido" min="-2" pref="100" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -34,7 +34,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnEnderecoActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="btnSecaoActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="btnSecao" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                           <Component id="btnUrnaActionPerformed" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -50,7 +50,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="btnPartidoActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="btnPartido" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace pref="156" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -59,7 +59,7 @@
                   <Component id="btnEnderecoActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnSecaoActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="btnSecao" min="-2" pref="60" max="-2" attributes="0"/>
                       <Component id="btnUrnaActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
                       <Component id="btnZonaActionPerformed" min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
@@ -86,12 +86,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUrnaActionPerformedActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSecaoActionPerformed">
+    <Component class="javax.swing.JButton" name="btnSecao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Se&#xe7;&#xe3;o"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSecaoActionPerformedActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSecaoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEnderecoActionPerformed">
@@ -102,12 +102,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnderecoActionPerformedActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnPartidoActionPerformed">
+    <Component class="javax.swing.JButton" name="btnPartido">
       <Properties>
         <Property name="text" type="java.lang.String" value="Partido"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPartidoActionPerformedActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPartidoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

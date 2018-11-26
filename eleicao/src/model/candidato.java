@@ -38,12 +38,4 @@ public class candidato extends Pessoa{
     public void setCargo(String Cargo) {
         this.cargo = Cargo;
     }
-
-    public int getTitEleitor() {
-        return titEleitor;
-    }
-
-    public void setTitEleitor(int titEleitor) {
-        this.titEleitor = titEleitor;
-    }
 }

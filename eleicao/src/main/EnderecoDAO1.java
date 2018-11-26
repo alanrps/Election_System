@@ -27,12 +27,12 @@ public class EnderecoDAO1 extends DbConnection{
 //    private final String sqlList    = "SELECT nmr,cep,logradouro FROM ENDERECO ORDER BY ENDERECO.nmr";
 //    private final String sqlFind    = "SELECT nmr,cep,logradouro FROM ENDERECO WHERE nmr = ?";
     private final String sqlInsertEndereco  = "INSERT INTO ENDERECO(nmr,cep,logradouro) VALUES (?,?,?)";
-    private final String sqlInsertPessoa  = "INSERT INTO PESSOA(idEnd,titEleitor,nome) VALUES (?,?,?)";
+    private final String sqlInsertPessoa  = "INSERT INTO PESSOA(idEnd,titEleitor,nome,nmrPartido) VALUES (?,?,?,?)";
     private final String sqlUpdateEndereco  = "UPDATE ENDERECO SET  nmr = ?, cep = ?, logradouro = ?";
     private final String sqlUpdatePessoa  = "UPDATE PESSOA SET  titEleitor = ?, nome = ?, dataNasc = ?";
     private final String sqlRemovePessoa  = "DELETE FROM PESSOA WHERE titEleitor = ?";
     private final String sqlRemoveEndereco  = "DELETE ENDERECO SET  id = ?";
-    private final String sqlList   = "SELECT titEleitor,nome,nmr,cep,logradouro FROM ENDERECO E,PESSOA WHERE P.idEnd = E.id P ORDER BY PESSOA.titEleitor"; //WHERE P.nmrEnd = E.nmr
+    private final String sqlList   = "SELECT titEleitor,nome,nmr,cep,logradouro FROM ENDERECO E,PESSOA WHERE P.idEnd = E.id ORDER BY PESSOA.titEleitor"; //WHERE P.nmrEnd = E.nmr
     private final String sqlFind   = "SELECT titEleitor,nome,nmr,cep,logradouro FROM ENDERECO E,PESSOA P WHERE titEleitor = ?";
     private final String sqlFindId = "SELECT id FROM ENDERECO WHERE nmr = ? AND cep = ? AND logradouro = ?";
     /**
@@ -48,6 +48,7 @@ public class EnderecoDAO1 extends DbConnection{
             ps.setInt(1, endereco.getNmr());
             ps.setInt(2, endereco.getCep());
             ps.setString(3, endereco.getLogradouro());
+            
             ps.execute();
             
             return findIdEndereco(endereco.getNmr(),endereco.getCep(),endereco.getLogradouro());
@@ -93,6 +94,7 @@ public class EnderecoDAO1 extends DbConnection{
             ps.setInt(1,id);
             ps.setInt(2, pessoa.getTitEleitor());
             ps.setString(3, pessoa.getNome());
+            ps.setInt(4, pessoa.getPartido().getNmr());
             
 //          ps.setDate(3, pessoa.getDataNasc());
             ps.execute();

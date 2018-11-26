@@ -9,6 +9,8 @@ import java.text.ParseException;
 public class Pessoa{
     private int titEleitor;
     private String nome;
+    private Secao secao;
+    private Partido partido;
 //    private Date dataNasc;
     
     public int getTitEleitor(){
@@ -24,11 +26,20 @@ public class Pessoa{
         this.nome = nome;
     }
     
-//    public Date getDataNasc(){
-//        return dataNasc;
-//    }
-//    public void setDataNasc(Date dataNasc) {
-//        this.dataNasc = dataNasc;
-//    }
+    public Secao getSecao(){
+        return secao;
+    }
+    public void setSecao(Secao secao){
+        this.secao = secao;
+    }
+    
+    public Partido getPartido(){
+        return partido;
+    }
+    public void setPartido(Partido partido){
+        this.partido = partido;
+    }
+    
+
     
 }

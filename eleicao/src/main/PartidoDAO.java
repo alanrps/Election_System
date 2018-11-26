@@ -24,6 +24,7 @@ public class PartidoDAO extends DbConnection{
     private final String sqlRemove = "DELETE FROM PARTIDO WHERE nmr = ?";
     private final String sqlList   = "SELECT nmr,nome,sigla FROM PARTIDO ORDER BY nmr";
     private final String sqlFind   = "SELECT nmr,nome,sigla FROM PARTIDO WHERE nmr = ?";
+    private final String sqlFind2  = "SELECT nmr,nome,sigla FROM PARTIDO WHERE nome = ?";
     
      public void insert(Partido partido) throws SQLException{
         PreparedStatement ps = null;
@@ -105,6 +106,32 @@ public class PartidoDAO extends DbConnection{
             conn = connect();
             ps = conn.prepareStatement(sqlFind);
             ps.setInt(1, nmr);
+
+            rs = ps.executeQuery();
+            Partido partido = null ;
+            if (rs.next()){
+                partido = new Partido();
+                partido.setNmr(rs.getInt("nmr"));
+                partido.setNome(rs.getString("nome"));
+                partido.setSigla(rs.getString("sigla"));
+            }
+            return partido;
+        }
+        finally{
+            rs.close();
+            ps.close();
+            close(conn);
+        }
+        
+    }
+    
+     public Partido find2(String nome)throws SQLException, ClassNotFoundException, IOException{
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            conn = connect();
+            ps = conn.prepareStatement(sqlFind2);
+            ps.setString(1, nome);
 
             rs = ps.executeQuery();
             Partido partido = null ;

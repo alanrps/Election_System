@@ -8,18 +8,16 @@ package ui;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import ui.PartidoJDialog;
 
 /**
  *
  * @author a1923161
  */
 public class Principal extends javax.swing.JFrame {
-
     public Principal() {
         initComponents();
       
-        
+   
     }
 
    
@@ -29,9 +27,9 @@ public class Principal extends javax.swing.JFrame {
 
         btnZonaActionPerformed = new javax.swing.JButton();
         btnUrnaActionPerformed = new javax.swing.JButton();
-        btnSecaoActionPerformed = new javax.swing.JButton();
+        btnSecao = new javax.swing.JButton();
         btnEnderecoActionPerformed = new javax.swing.JButton();
-        btnPartidoActionPerformed = new javax.swing.JButton();
+        btnPartido = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,10 +47,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnSecaoActionPerformed.setText("Seção");
-        btnSecaoActionPerformed.addActionListener(new java.awt.event.ActionListener() {
+        btnSecao.setText("Seção");
+        btnSecao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSecaoActionPerformedActionPerformed(evt);
+                btnSecaoActionPerformed(evt);
             }
         });
 
@@ -63,10 +61,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnPartidoActionPerformed.setText("Partido");
-        btnPartidoActionPerformed.addActionListener(new java.awt.event.ActionListener() {
+        btnPartido.setText("Partido");
+        btnPartido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPartidoActionPerformedActionPerformed(evt);
+                btnPartidoActionPerformed(evt);
             }
         });
 
@@ -76,7 +74,7 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(281, Short.MAX_VALUE)
-                .addComponent(btnPartidoActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -84,7 +82,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnEnderecoActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnSecaoActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSecao, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(30, 30, 30)
                             .addComponent(btnUrnaActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(20, 20, 20)
@@ -95,7 +93,7 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(btnPartidoActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(156, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -103,7 +101,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(btnEnderecoActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(50, 50, 50)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnSecaoActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSecao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnUrnaActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnZonaActionPerformed, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(0, 0, Short.MAX_VALUE)))
@@ -120,12 +118,12 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUrnaActionPerformedActionPerformed
 
-    private void btnSecaoActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSecaoActionPerformedActionPerformed
+    private void btnSecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSecaoActionPerformed
         SecaoJDialog form = new SecaoJDialog(null, true);
         form.setSize(500,500);
         form.setLocationRelativeTo(null); 
         form.setVisible(true);
-    }//GEN-LAST:event_btnSecaoActionPerformedActionPerformed
+    }//GEN-LAST:event_btnSecaoActionPerformed
 
     private void btnEnderecoActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnderecoActionPerformedActionPerformed
         // TODO add your handling code here:
@@ -137,18 +135,18 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEnderecoActionPerformedActionPerformed
 
-    private void btnPartidoActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartidoActionPerformedActionPerformed
+    private void btnPartidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartidoActionPerformed
         PartidoJDialog form = new PartidoJDialog(null, true);
         form.setSize(500,500);
         form.setLocationRelativeTo(null); 
         form.setVisible(true);
-    }//GEN-LAST:event_btnPartidoActionPerformedActionPerformed
+    }//GEN-LAST:event_btnPartidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnderecoActionPerformed;
-    private javax.swing.JButton btnPartidoActionPerformed;
-    private javax.swing.JButton btnSecaoActionPerformed;
+    private javax.swing.JButton btnPartido;
+    private javax.swing.JButton btnSecao;
     private javax.swing.JButton btnUrnaActionPerformed;
     private javax.swing.JButton btnZonaActionPerformed;
     // End of variables declaration//GEN-END:variables

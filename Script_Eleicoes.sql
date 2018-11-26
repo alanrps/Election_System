@@ -1,5 +1,5 @@
 CREATE DATABASE ELEICAO;
-USE F1;
+USE ELEICAO;
 
 DROP TABLE IF EXISTS PESSOA;
 DROP TABLE IF EXISTS ENDERECO;
@@ -18,14 +18,15 @@ CREATE TABLE PESSOA(
     dataNasc DATE,
     nmrPartido INTEGER, #Tabela partidos
     nmrSecao INTEGER, #Tabela secao
-    nmrEnd INTEGER, #Tabela endereco
+    idEnd INTEGER, #Tabela endereco
 	FOREIGN KEY (nmrPartido) references PARTIDO(num),
     FOREIGN KEY (nmrSecao) references SECAO(nmr),
-    FOREIGN KEY (nmrEnd) references ENDERECO(nmr)
+    FOREIGN KEY (idEnd) references ENDERECO(id)
 );
 
 CREATE TABLE ENDERECO(
-	nmr INTEGER PRIMARY KEY,
+	id INTEGER PRIMARY KEY auto_increment ,
+	nmr INTEGER,
     cep INTEGER,
 	logradouro VARCHAR(100)
 );
@@ -96,13 +97,45 @@ CREATE TABLE REGISTRAP(
 );
 
 
+
+select *
+from PESSOA P,ENDERECO E
+WHERE P.idEnd = E.id;
+
 SELECT *
 FROM ENDERECO;
 
 INSERT INTO ENDERECO values(10,1110121,'Avenida São Joao',10101);
 
 CREATE USER 'teste'@'localhost:3306' IDENTIFIED BY '123456';
-GRANT ALL PRIVILEGES ON * . * TO 'teste'@'localhost:3306';
-GRANT ALL ON *.* TO 'root'@'localhost:3306' WITH GRANT OPTION; 
+GRANT ALL PRIVILEGES ON * . * TO 'root'@'localhost';
+GRANT ALL ON *.* TO 'root'@'localhost' WITH GRANT OPTION; 
 FLUSH PRIVILEGES;
+
+ALTER TABLE `PESSOA` AUTO_INCREMENT = 0
+
+select *
+from mysql.user;
+
+DELETE FROM pessoa
+WHERE idEnd != 1;
+
+
+
+SELECT P.titEleitor as tituloeleitor,P.nome,E.nmr as numero, E.cep, E.logradouro,PAR.nome as partido FROM Endereco E,Pessoa P,Partido PAR where P.idEnd = E.id AND PAR.nmr = P.nmrPartido
+;
+
+SELECT PAR.nmr as numero,PAR.nome,PAR.sigla,count(nmr)
+FROM PARTIDO PAR,PESSOA P
+WHERE PAR.nmr = P.nmrPartido
+group by nmr
+
+SELECT *
+FROM PESSOA,PARTIDO P
+WHERE nmrPartido = nmr
+
+INSERT INTO PESSOA(titEleitor,nome,nmrPartido) VALUES (12345,'Lula Preso',13);
+INSERT INTO PARTIDO(nmr,nome,sigla) VALUES (13,'Lula Preso','PT');
+
+SELECT  FROM PARTIDO
 

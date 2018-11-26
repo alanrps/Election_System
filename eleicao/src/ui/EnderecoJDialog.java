@@ -11,17 +11,25 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableCellRenderer;
 import model.Endereco;
+import model.Partido;
 import model.Pessoa;
+
 import ViewModel.EnderecoPessoa;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.EnderecoDAO1;
+import main.PartidoDAO;
 
 
 public class EnderecoJDialog extends javax.swing.JDialog {
-    public EnderecoJDialog(java.awt.Frame parent, boolean modal){
+    public EnderecoJDialog(java.awt.Frame parent, boolean modal)throws ClassNotFoundException, IOException{
         super(parent,modal);
         initComponents();
         try {
             loadRecords();
+            fillcbPartido();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -50,6 +58,8 @@ public class EnderecoJDialog extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        cbSecao = new javax.swing.JComboBox<>();
+        cbPartido = new javax.swing.JComboBox<>();
 
         JTableEndereco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JTableEndereco.setModel(new javax.swing.table.DefaultTableModel(
@@ -146,17 +156,21 @@ public class EnderecoJDialog extends javax.swing.JDialog {
         jLabel15.setText("Título de Eleitor:");
         jLabel15.setAlignmentX(1.0F);
 
+        cbSecao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbPartido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(3, 3, 3)
@@ -176,7 +190,7 @@ public class EnderecoJDialog extends javax.swing.JDialog {
                                     .addComponent(jLabel13)
                                     .addComponent(txtNmr, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,7 +200,13 @@ public class EnderecoJDialog extends javax.swing.JDialog {
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(cbSecao, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -220,7 +240,11 @@ public class EnderecoJDialog extends javax.swing.JDialog {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNmr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbSecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbPartido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,7 +263,9 @@ public class EnderecoJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         addRecord = true;
         clearInputBoxes();
+        cbPartido.requestFocus();
         enableButtons(false, true, true, false); //verificar
+        cbPartido.setEnabled(true);
         txtTitEleitor.setEnabled(true);
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -257,8 +283,12 @@ public class EnderecoJDialog extends javax.swing.JDialog {
                 loadRecords();
                 clearInputBoxes();
                 enableButtons(true, false, false, false);
+                cbPartido.setEnabled(false);
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
+            }
+             catch (ClassNotFoundException | IOException ex) {
+                Logger.getLogger(EnderecoJDialog.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_btnRemoverActionPerformed
@@ -277,8 +307,11 @@ public class EnderecoJDialog extends javax.swing.JDialog {
                 addRecord = false;
                 loadRecords();
                 enableButtons(true, false, false, false);
+                cbPartido.setEnabled(false);
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
+            } catch (ClassNotFoundException | IOException ex) {
+                Logger.getLogger(EnderecoJDialog.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -298,28 +331,35 @@ public class EnderecoJDialog extends javax.swing.JDialog {
 //        txtDataNasc.setText("");
     }
     
-     private void addNew() throws SQLException {
+     private void addNew() throws SQLException, ClassNotFoundException, IOException {
         Endereco e = new Endereco();
         Pessoa p = new Pessoa();
+        PartidoDAO pDao = new PartidoDAO();
+        
         e.setNmr(Integer.parseInt(txtNmr.getText()));
         e.setCep(Integer.parseInt(txtCep.getText()));
         e.setLogradouro(txtLogradouro.getText());
         p.setTitEleitor(Integer.parseInt(txtTitEleitor.getText()));
         p.setNome(txtNome.getText());
+        p.setPartido(pDao.find2((String) cbPartido.getSelectedItem())); //Verificar find2
 //        p.setDataMqSql(txtDataNasc.getText());
         EnderecoDAO1 dao = new EnderecoDAO1();
         int idEndereco = dao.insertEndereco(e);
         dao.insertPessoa(p,idEndereco);
+        
     }
      
-    private void updateRecord() throws SQLException {
+    private void updateRecord() throws SQLException, ClassNotFoundException, IOException {
         Endereco e = new Endereco();
         Pessoa p = new Pessoa();
+        PartidoDAO pDao = new PartidoDAO();
+        
         e.setNmr(Integer.parseInt(txtNmr.getText()));
         e.setCep(Integer.parseInt(txtCep.getText()));
         e.setLogradouro(txtLogradouro.getText());
         p.setTitEleitor(Integer.parseInt(txtTitEleitor.getText()));
         p.setNome(txtNome.getText());
+        p.setPartido(pDao.find2((String) cbPartido.getSelectedItem()));
 //        p.setDataMqSql(txtDataNasc.getText());
         EnderecoDAO1 dao = new EnderecoDAO1();
         dao.updateEndereco(e);
@@ -332,8 +372,9 @@ public class EnderecoJDialog extends javax.swing.JDialog {
 //        dao.removeEndereco(Integer.parseInt(txtNmr.getText()));
     }
     
-      private void loadRecords() throws SQLException {
-        String sql = "SELECT titEleitor as tituloeleitor,nome,nmr as numero, cep, logradouro FROM Endereco E,Pessoa P"; //verificar dataNasc as data nascimento
+      private void loadRecords() throws SQLException, ClassNotFoundException, IOException {
+        String sql = "SELECT P.titEleitor as tituloeleitor,P.nome,E.nmr as numero, E.cep, E.logradouro,PAR.nome as partido FROM Endereco E,Pessoa P,Partido PAR where P.idEnd = E.id AND PAR.nmr = P.nmrPartido";
+ //verificar dataNasc as data nascimento
         ResultSetTableModel tableModel = new ResultSetTableModel(sql);
         JTableEndereco.setModel(tableModel);
         
@@ -353,19 +394,22 @@ public class EnderecoJDialog extends javax.swing.JDialog {
                     Object nmr = JTableEndereco.getModel().getValueAt(JTableEndereco.getSelectedRow(), 2);
                     Object cep = JTableEndereco.getModel().getValueAt(JTableEndereco.getSelectedRow(), 3);
                     Object logradouro = JTableEndereco.getModel().getValueAt(JTableEndereco.getSelectedRow(), 4);
+                    Object partido =  JTableEndereco.getModel().getValueAt(JTableEndereco.getSelectedRow(), 5);
 //                    Object dataNasc = JTableEndereco.getModel().getValueAt(JTableEndereco.getSelectedRow(), 5);
                     
                     //Verificar
                     txtTitEleitor.setText(titEleitor.toString());
-                    txtNome.setText(titEleitor.toString());
+                    txtNome.setText(nome.toString());
                     txtNmr.setText(nmr.toString());
                     txtCep.setText(cep.toString());
                     txtLogradouro.setText(logradouro.toString());
+                    cbPartido.setSelectedItem(partido.toString());
                     
                     
 //                    txtDataNasc.setText(titEleitor.toString());
                     
                     enableButtons(false, true, true, true);
+                    cbPartido.setEnabled(true);
                     txtTitEleitor.setEnabled(true); //Verificar
                 }
             } catch (Exception ex) {
@@ -384,6 +428,11 @@ public class EnderecoJDialog extends javax.swing.JDialog {
         btnCancelar.setEnabled(cancelar);
         btnRemover.setEnabled(remover);
     }
+    
+    
+    
+         
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JTableEndereco;
@@ -392,6 +441,8 @@ public class EnderecoJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JComboBox<String> cbPartido;
+    private javax.swing.JComboBox<String> cbSecao;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -406,4 +457,16 @@ public class EnderecoJDialog extends javax.swing.JDialog {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTitEleitor;
     // End of variables declaration//GEN-END:variables
+
+private void fillcbPartido() throws SQLException, ClassNotFoundException, IOException {
+        PartidoDAO dao = new PartidoDAO();
+        List<Partido> partidos = dao.list();
+        cbPartido.removeAllItems();
+        for(Partido p : partidos){
+            cbPartido.addItem(p.getNome());
+        }
+}
+
+
+
 }

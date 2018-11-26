@@ -8,6 +8,7 @@ public class Endereco{
     private int nmr;
     private int cep;
     private String logradouro;
+  
    
     
     public int getNmr(){
@@ -30,4 +31,8 @@ public class Endereco{
     public void setLogradouro(String logradouro){
         this.logradouro = logradouro;
     }
+    
+    
+    
+    
 }
