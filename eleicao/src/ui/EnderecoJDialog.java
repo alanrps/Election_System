@@ -429,6 +429,14 @@ public class EnderecoJDialog extends javax.swing.JDialog {
         btnRemover.setEnabled(remover);
     }
     
+//    public void enableFields(boolean nmr, boolean cep,boolean nome,boolean titEleitor,boolean logradouro){
+//        txtNome.setEnabled(cep);
+//        txtCep.setEnabled(cep);
+//        txtTitEleitor.setEnabled(titEleitor); 
+//        txtLogradouro.setEnabled(logradouro);
+//        txtNmr.setEnabled(nmr);
+//    }
+    
     
     
          

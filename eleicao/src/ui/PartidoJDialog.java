@@ -330,6 +330,7 @@ public class PartidoJDialog extends javax.swing.JDialog {
                 "group by nmr";
         ResultSetTableModel tableModel = new ResultSetTableModel(sql);
         JTablePartido.setModel(tableModel);
+//        enableFields(false,false,false);
         
 //        //Hiding column "id" 
 //        JTablePartido.removeColumn(JTablePartido.getColumnModel().getColumn(0));
@@ -370,6 +371,12 @@ public class PartidoJDialog extends javax.swing.JDialog {
         btnSalvar.setEnabled(salvar);
         btnCancelar.setEnabled(cancelar);
         btnRemover.setEnabled(remover);
+    }
+     
+    public void enableFields(boolean nmr, boolean nome,boolean sigla){
+        txtNmr.setEnabled(nmr);
+        txtNome.setEnabled(nome); 
+        txtSigla.setEnabled(sigla);  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

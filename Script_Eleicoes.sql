@@ -17,36 +17,31 @@ CREATE TABLE PESSOA(
     nome VARCHAR(100),
     dataNasc DATE,
     nmrPartido INTEGER, #Tabela partidos
-    nmrSecao INTEGER, #Tabela secao
+    codSecao VARCHAR(100), #Tabela secao
     idEnd INTEGER, #Tabela endereco
 	FOREIGN KEY (nmrPartido) references PARTIDO(num),
-    FOREIGN KEY (nmrSecao) references SECAO(nmr),
+    FOREIGN KEY (codSecao) references SECAO(codigo),
     FOREIGN KEY (idEnd) references ENDERECO(id)
 );
 
 CREATE TABLE ENDERECO(
-	id INTEGER PRIMARY KEY auto_increment ,
+	id INTEGER PRIMARY KEY auto_increment,
 	nmr INTEGER,
     cep INTEGER,
 	logradouro VARCHAR(100)
 );
 
-CREATE TABLE PARTIDO(
-	nmr INTEGER PRIMARY KEY,
-    nome VARCHAR(100),
-    nmrVotos INTEGER,
-    sigla VARCHAR(10)
-);
-
 CREATE TABLE SECAO(
-	nmr INTEGER PRIMARY KEY,
-    localizacao VARCHAR(100),
-    qtdeEleitores INTEGER,                     ###AUTO_INCREMENT
+	codigo VARCHAR(100) primary key, 
+    qtdeEleitores INTEGER,              
     nmrZona INTEGER, #Tabela Zona
     estadoZona VARCHAR(100), #Tabela Zona
+	idEnd INTEGER, #Tabela endereco
 	FOREIGN KEY (nmrZona) REFERENCES ZONA(nmr),
-    FOREIGN KEY (estadoZona) REFERENCES ZONA(estado)
+    FOREIGN KEY (estadoZona) REFERENCES ZONA(estado),
+    FOREIGN KEY (idEnd) references ENDERECO(id)
 );
+
 
 CREATE TABLE ZONA(
 	nmr INTEGER,
@@ -96,7 +91,11 @@ CREATE TABLE REGISTRAP(
     FOREIGN KEY (nmrUrna) REFERENCES URNA(nmr)
 );
 
+DELETE FROM partido;
 
+use eleicao;
+select *
+from partido;
 
 select *
 from PESSOA P,ENDERECO E
@@ -139,3 +138,12 @@ INSERT INTO PARTIDO(nmr,nome,sigla) VALUES (13,'Lula Preso','PT');
 
 SELECT  FROM PARTIDO
 
+SELECT nmr
+FROM PARTIDO;
+
+SELECT PAR.nmr as numero,PAR.nome,PAR.sigla FROM PARTIDO PAR;
+
+select *
+from PARTIDO;
+
+use aluno;
